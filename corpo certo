@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praia Flora</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        nav a { margin: 0 10px; text-decoration: none; color: blue; }
+        .section { display: none; margin-top: 20px; }
+        .section.active { display: block; }
+        ul { text-align: left; margin: 0 auto; max-width: 300px; }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao Praia Flora</h1>
+    <nav>
+        <a href="#" onclick="showSection('sul')">Sul</a>
+        <a href="#" onclick="showSection('sudeste')">Sudeste</a>
+        <a href="#" onclick="showSection('nordeste')">Nordeste</a>
+        <a href="#" onclick="showSection('contato')">Contato</a>
+    </nav>
+
+    <div id="sul" class="section">
+        <h2>Região Sul</h2>
+        <ul>
+            <li>Praia de Joaquina</li>
+            <li>Praia dos Ingleses</li>
+        </ul>
+        <textarea id="inputSul" placeholder="Adicione mais informações..."></textarea>
+        <button onclick="addItem('sul')">Adicionar</button>
+    </div>
+
+    <div id="sudeste" class="section">
+        <h2>Região Sudeste</h2>
+        <ul>
+            <li>Praia de Copacabana</li>
+            <li>Praia do Guarujá</li>
+        </ul>
+        <textarea id="inputSudeste" placeholder="Adicione mais informações..."></textarea>
+        <button onclick="addItem('sudeste')">Adicionar</button>
+    </div>
+
+    <div id="nordeste" class="section">
+        <h2>Região Nordeste</h2>
+        <ul>
+            <li>Praia do Forte</li>
+            <li>Praia de Jericoacoara</li>
+        </ul>
+        <textarea id="inputNordeste" placeholder="Adicione mais informações..."></textarea>
+        <button onclick="addItem('nordeste')">Adicionar</button>
+    </div>
+
+    <div id="contato" class="section">
+        <h2>Contato</h2>
+        <p>Email: contato@praiaflora.com</p>
+        <textarea id="inputContato" placeholder="Deixe uma mensagem..."></textarea>
+        <button onclick="alert('Mensagem enviada!')">Enviar</button>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function addItem(region) {
+            const inputId = `input${region.charAt(0).toUpperCase() + region.slice(1)}`;
+            const textarea = document.getElementById(inputId);
+            const text = textarea.value.trim();
+
+            if (text) {
+                const ul = document.querySelector(`#${region} ul`);
+                const li = document.createElement('li');
+                li.textContent = text;
+                ul.appendChild(li);
+                textarea.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
