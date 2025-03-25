@@ -29,7 +29,7 @@
         <p>Este site foi criado para compartilhar informações sobre a biodiversidade das praias.</p>
     </section>
 
-    <section id="flora">
+    <section id="florasul">
         <h1>Flora</h1>
         <p>Veja a lista das plantas encontradas:</p>
         <ul id="flora-lista"></ul>
@@ -39,8 +39,12 @@
     </section>
 
     <section id="contato">
-        <h1>Contato</h1>
-        <p>Envie suas sugestões para <a href="mailto:praiaflora@exemplo.com">praiaflora@exemplo.com</a>.</p>
+        <h1>Florasudeste</h1>
+        <p>Veja a lista das plantas encontradas:</p>
+        <ul id="flora-lista"></ul>
+        <h3>Adicione novas plantas:</h3>
+        <input type="text" id="nova-planta" placeholder="Nome da planta">
+        <button onclick="adicionarPlanta()">Adicionar</button>
     </section>
 
     <script>
